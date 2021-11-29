@@ -1,0 +1,103 @@
+* {
+  font-family: "Dosis", sans-serif;
+}
+body {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  background-blend-mode: multiply, multiply;
+}
+
+@mixin centerFlex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin createButton(
+  $width,
+  $height,
+  $radius,
+  $gradientFirst,
+  $gradientThird,
+  $shadowColor
+) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  box-shadow: 0 20px 30px -6px $shadowColor;
+  background-image: linear-gradient(
+    135deg,
+    $gradientFirst 0%,
+    $gradientThird 100%
+  );
+}
+
+h1 {
+  background: linear-gradient(to right, #fec163 0%, #de4313 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.button {
+  transition: all 0.3s ease-in-out;
+  @include createButton(
+    90px,
+    65px,
+    5px,
+    #ebe8ec,
+    #9c9898,
+    rgba(100, 95, 94, 0.5)
+  );
+
+  &:hover {
+    transform: translatey(2px);
+    font-stretch: extra-expanded;
+    background-color: darken($color: #000000, $amount: 20%);
+  }
+  &:active {
+    opacity: 0.5;
+  }
+}
+.btn-opt {
+  @extend .button;
+  @include createButton(
+    70px,
+    45px,
+    5px,
+    #cca4e2,
+    #570f9b,
+    rgba(154, 19, 196, 0.5)
+  );
+}
+.btn-opt2 {
+  @extend .button;
+  @include createButton(
+    70px,
+    45px,
+    5px,
+    #a6e2a4,
+    #0f9b16,
+    rgba(54, 196, 19, 0.5)
+  );
+}
+.btn-opt3 {
+  @extend .button;
+  @include createButton(
+    70px,
+    45px,
+    5px,
+    #a4d3e2,
+    #0f509b,
+    rgba(19, 22, 196, 0.5)
+  );
+}
